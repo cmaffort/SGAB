@@ -2,10 +2,20 @@
 <%@page import="sgab.model.dto.Usuario" %>
 <%@page import="java.util.List" %>
 
-<%@include file="/core/header.jsp" %>
+<%@include file="/core/menu.jsp"%>
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>SGAB</title>
+        <script type="text/javascript" language="JavaScript" src="/sgab/js/helper.js"></script>
+    </head>
+    <body>
         <center>
-            <h3>Lista de Usuários</h3>
+            <h3>Lista de Usuarios</h3>
             <a href="/sgab/core/usuario/inserir.jsp">Novo Usuario</a>
             <form name="frmUsuario" method="post">
                 <input type="hidden" name="table" value="Usuario">
@@ -60,4 +70,5 @@
                 </table>
             </form>
         </center> 
-        <%@include file="/core/footer.jsp" %>
+    </body>
+</html>

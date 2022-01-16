@@ -33,45 +33,9 @@ public class Main extends HttpServlet {
                 break;
             case "UsuarioGravarInsercao":
                 jsp = UsuarioController.gravarInsercao(request);
-                break;           
+                break;
             case "UsuarioExcluir":
                 jsp = UsuarioController.excluir(request);
-                break;
-            case "ObraListar":
-                jsp = ObraController.listar(request);
-                break;
-            case "ObraPesquisar":
-                jsp = ObraController.pesquisar(request);
-                break;
-            case "ObraGravarInsercao":
-                jsp = ObraController.gravarInsercao(request);
-                break;
-            case "ObraAlterar":
-                jsp = ObraController.alterar(request);
-                break;
-            case "ObraGravarAlteracao":
-                jsp = ObraController.gravarAlteracao(request);
-                break;
-            case "ObraExcluir":
-                jsp = ObraController.excluir(request);
-                break;                               
-            case "PessoaPesquisar":
-                jsp = PessoaController.pesquisarLogin(request);
-                break;
-            case "PessoaListar":
-                jsp = PessoaController.listar(request);
-                break;
-            case "PessoaAlterar":
-                jsp = PessoaController.alterar(request);
-                break;
-            case "PessoaGravarAlteracao":
-                jsp = PessoaController.gravarAlteracao(request);
-                break;
-            case "PessoaGravarInsercao":
-                jsp = PessoaController.gravarInsercao(request);
-                break;
-            case "PessoaExcluir":
-                jsp = PessoaController.excluir(request);
                 break;
         }
 
