@@ -5,12 +5,14 @@
 package sgab.model.dto;
 
 public class Fornecedor {
+    private Long id;
     private Long cnpj;
     private String nomeFornecedor;
     private String email;
     private Long telefone;
     private Long cep;
     private String endereco;
+    private boolean habilitado;
     
     public Fornecedor(long cnpj, String nomeFornecedor, String email,
                               Long telefone, Long cep, String endereco){
@@ -20,6 +22,7 @@ public class Fornecedor {
         this.telefone = telefone;
         this.cep = cep;
         this.endereco = endereco;
+        this.habilitado = true;
     }
 
     public Long getCnpj() {
@@ -68,6 +71,14 @@ public class Fornecedor {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isHabilitado() {
+        return habilitado;
+    }
+
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
     }
     
     
