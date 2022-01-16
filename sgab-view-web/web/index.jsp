@@ -1,14 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%
-    Long pessoaId = (Long) request.getSession().getAttribute("pessoaId");
-    if (pessoaId != null) {
-        //Redirecionando pagina
-        RequestDispatcher rd = request.getRequestDispatcher("/core/menu.jsp");
-        rd.forward(request, response);
-    }
-%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +13,7 @@
     <body>
         <header>
             <div id="pagina-inicial">
-                <a href="" title="Página Inicial">
+                <a href=""title="Página Inicial">
                     SGAB
                 </a>
             </div>
@@ -39,12 +30,12 @@
             <section id="form">
                 <div id="caixa-form">
                     <form name="frmLogin" method='post'>
-                        <label>Login: <input type="text" id="login" name="login" placeholder="Login" required> </label>
+                        <label>Usuário: <input type="text" id="login" name="login" placeholder="Login" required> </label>
                         <br />
                         <label>Senha: <input type="password" id="senha" name="senha" placeholder="Senha" required> </label>
                         <br />
                         <button type="button" onclick="validarCamposLogin(document.frmLogin)">Acessar</button>                       
-                    </form>
+                    </form>          
                 </div>
             </section>
         </main>

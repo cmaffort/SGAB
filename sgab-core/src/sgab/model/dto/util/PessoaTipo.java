@@ -8,8 +8,10 @@ package sgab.model.dto.util;
  *
  * @author gasa1
  */
-public enum BibliotecaStatus {
-   ATIVA,       // ainda utiliza o sistema
-   CANCELADA,   // cancelado por violação das regras de uso
-   SUSPENSA;    
+public enum PessoaTipo {
+   ADM,       // ainda utiliza o sistema
+   GESTOR,   // cancelado por violação das regras de uso
+   ATENDENTE,
+   BIBLIOTECARIO,
+   LEITOR;    // suspenso por inatividade
 }
