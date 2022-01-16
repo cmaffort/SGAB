@@ -69,6 +69,20 @@ function gravarAlteracao(frm) {
                 caminhourl = "/sgab/main?acao=UsuarioGravarInsercao";
         }
     }
+    else if (table === "Pessoa") {
+        if (validarPessoa(frm)) {
+            if (frm.acao.value === "alterar")
+                caminhourl = "/sgab/main?acao=PessoaGravarAlteracao";
+            else if (frm.acao.value === "gravar")
+                caminhourl = "/sgab/main?acao=PessoaGravarInsercao";
+        }
+    }
+    else if(table === "Obra") {
+        if (validarObra(frm)) {
+            if (frm.acao.value === "alterar")
+                caminhourl = "/sgab/main?acao=ObraGravarAlteracao";
+            else if (frm.acao.value === "gravar")
+                caminhourl = "/sgab/main?acao=ObraGravarInsercao";
     else if(table === "Biblioteca"){
         if(validarBiblioteca(frm)){
             if (frm.acao.value === "alterar")
@@ -94,6 +108,51 @@ function excluir(id, frm) {
     }
 }
 
+function validarCamposPesquisaObra(frm){
+    let tipo = frm.tipo.value;
+    let nome = frm.nome.value;
+
+    if(tipo == "null"){
+        alert("Escolha um tipo de pesquisa!");
+        frm.tipo.focus();
+    }
+    else if (nome == ""){
+        alert("Preencha o campo de nome!");
+        frm.nome.focus();
+    }
+    else{
+        frm.action = "/sgab/main?acao=ObraPesquisar";
+        frm.submit();
+    }
+}
+
+function validarObra(frm){
+    let result = false;
+    if (frm.titulo.value === "") {
+        alert("Informar o título!");
+        frm.titulo.focus();
+    } else if (frm.ano.value === "") {
+        alert("Informar o ano de publicação!");
+        frm.ano.focus();
+    } else if (frm.editora.value === "") {
+        alert("Informar a editora!");
+        frm.editora.focus();
+    } else if (frm.cidEditora.value === "") {
+        alert("Informar a cidade da editora!");
+        frm.cidEditora.focus();
+    } else if (frm.edicao.value === "") {
+        alert("Informar a edição!");
+        frm.edicao.focus();
+    } else if (frm.volume.value === "") {
+        alert("Informar o volume!");
+        frm.volume.focus();
+    }
+    else
+        result = true;
+
+    return result
+}
+
 function validarBiblioteca(validar) {
     let result = false;
     
@@ -111,4 +170,3 @@ function validarBiblioteca(validar) {
     
     return result;
 }
-

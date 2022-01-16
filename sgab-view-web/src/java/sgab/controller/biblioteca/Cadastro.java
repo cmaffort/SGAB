@@ -13,7 +13,7 @@ import sgab.model.service.GestaoBiblioteca;
 
 
 @WebServlet(urlPatterns = {"/cadastroBiblioteca"})
-public class cadastroServlet extends HttpServlet {
+public class Cadastro extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

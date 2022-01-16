@@ -12,7 +12,7 @@ import sgab.model.dto.Biblioteca;
 import sgab.model.service.GestaoBiblioteca;
 
 @WebServlet(urlPatterns = {"/gerenciaBiblioteca"})
-public class gerenciaServlet extends HttpServlet {
+public class Gerencia extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
