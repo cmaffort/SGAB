@@ -5,8 +5,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import sgab.model.dto.Usuario;
-import sgab.model.service.GestaoUsuario;
+import sgab.model.dto.Pessoa;
+import sgab.model.service.GestaoPessoasService;
 
 public class LoginController {
 
@@ -18,15 +18,15 @@ public class LoginController {
             String login = request.getParameter("login");
             String senha = request.getParameter("senha");
 
-            GestaoUsuario manterUsuario = new GestaoUsuario();
-            Usuario usuario = manterUsuario.pesquisarUsuario(login, senha);
+            GestaoPessoasService manterPessoa = new GestaoPessoasService();
+            Pessoa pessoa = manterPessoa.pesquisarConta(login, senha);
 
-            if (usuario == null) {
-                String erro = "Usuario nao encontrado!";
+            if (pessoa == null) {
+                String erro = "Pessoa nao encontrado!";
                 request.setAttribute("erro", erro);
                 jsp = "/core/erro.jsp";
             } else {
-                request.getSession().setAttribute("usuarioId", usuario.getId());
+                request.getSession().setAttribute("pessoaId", pessoa.getId());
                 jsp = "/core/menu.jsp";
             }
 
@@ -38,8 +38,8 @@ public class LoginController {
     }
 
     public static void validarSessao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Long usuarioId = (Long) request.getSession().getAttribute("usuarioId");
-        if (usuarioId == null) {
+        Long pessoaId = (Long) request.getSession().getAttribute("pessoaId");
+        if (pessoaId == null) {
             //Redirecionando pagina
             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
