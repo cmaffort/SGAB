@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="..\..\css\styles.css">
 </head>
 <body>
-    <% String assuntoAntigo = request.getAttribute("tagAssuntoAntigo"); 
-        String assuntoEditado = request.getAttribute("tagAssuntoNovo"); %>
     <header>
         <div id="pagina-inicial">
             <a href=""title="Página Inicial">
@@ -19,7 +17,7 @@
         </div>
         <div id="logo-topo">
             <a href="http://www.cefetmg.br/" target="_blank" title="Centro Federal de Educação Tecnológica de Minas Gerais">
-                <img src="..\..\images/logo_topo.png" alt="Centro Federal de Educação Tecnológica de Minas Gerais">
+                <img src="../../images/logo_topo.png" alt="Centro Federal de Educação Tecnológica de Minas Gerais">
             </a>
         </div>
     </header>
@@ -29,21 +27,18 @@
         </section>
         <section id="form">
             <div id="caixa-form">
-                <form action="/sgab/editarController" method="post"> <!-- verificar caminho do action (./editarController) -->
+                <form action="../../controller/AssuntosController.java" method="post"> <!-- verificar caminho do action (./editarController) -->
                     <div>
                         <label for="tag">Informe o assunto a ser editado <span class="input-obrigatorio">*</span></label>
                         <input type="text" id="assunto" name="assuntoAntigo" placeholder="Assunto a ser editado" required>
-                        <small>Digite um assunto válido.</small>
                     </div>
                     <div>
                         <label for="tag">Informe o novo assunto <span class="input-obrigatorio">*</span></label>
                         <input type="text" id="assunto" name="assuntoNovo" placeholder="Novo assunto" required>
-                        <small>Digite um assunto válido.</small>
                     </div>
                     <div class="caixa-form-footer">
-                        <button type="submit">Editar</button>
+                        <button type="submit">Editar</button><br>
                     </div>
-                    <h2>Assunto <%= assuntoAntigo%> foi alterado para <%= assuntoEditado%>!</h2>
                 </form>
             </div>
         </section>

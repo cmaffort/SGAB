@@ -7,7 +7,7 @@ public class GestaoAssuntosService {
     ArrayList<Assunto> assuntoLista = new ArrayList<>();
 
     public void adicionarAssunto(String nome){
-        Assunto assunto = new Assunto();
+        Assunto assunto = new Assunto(nome);
         if (assuntoLista.contains(getAssunto(nome))){
             throw new IllegalArgumentException("Erro: assunto já existente");
         }

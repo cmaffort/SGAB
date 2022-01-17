@@ -4,6 +4,10 @@ public class Assunto {
     String nome;
     Long id;
 
+    public Assunto(String tagAssunto) {
+        this.nome = tagAssunto;
+    }
+    
     public Long getId(){
         return id;
     }
