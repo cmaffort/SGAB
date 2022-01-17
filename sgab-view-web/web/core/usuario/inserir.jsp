@@ -1,6 +1,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@include file="/core/menu.jsp" %>
 
-<%@include file="/core/header.jsp" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <script type="text/javascript" language="JavaScript" src="/sgab/js/helper.js"></script>
+        <title>SGAB</title>
+    </head>
+    <body>
 
         <center>
             <h3>Inserir Usuário</h3>
@@ -43,11 +53,13 @@
                     <tr>
                         <td colspan="2" aling="center">
                             <input type="button" value="Gravar" onclick="gravarAlteracao(document.frmInserirUsuario)">&nbsp;
+                            <input type="reset" value="Redefinir">&nbsp;
                             <a href="/sgab/main?acao=UsuarioListar">Listar Usuários</a><br>
                         </td>
                     </tr>
                 </table>
             </form>
         </center> 
-        <%@include file="/core/footer.jsp" %>
-
+    
+    </body>
+</html>
