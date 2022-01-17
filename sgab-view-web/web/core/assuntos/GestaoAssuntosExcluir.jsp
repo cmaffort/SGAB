@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="..\..\css\styles.css">
 </head>
 <body>
-    <% String assuntoAntigo = request.getAttribute("tagAssuntoAntigo");
+    <% String assuntoAntigo = request.getAttribute("tagAssuntoAntigo");  
         String assuntoEditado = request.getAttribute("tagAssuntoNovo"); %>
     <header>
         <div id="pagina-inicial">
@@ -29,10 +29,10 @@
         </section>
         <section id="form">
             <div id="caixa-form">
-                <form action="../controller/excluirController.java" method="post"> <!-- verificar caminho do action -->
+                <form action="/sgab/excluirController" method="post"> <!-- verificar caminho do action -->
                     <div>
                         <label for="tag">Informe o assunto a ser excluido <span class="input-obrigatorio">*</span></label>
-                        <input type="text" id="assunto" name="assunto" placeholder="Assunto" required>
+                        <input type="text" id="assunto" name="assuntoExcluir" placeholder="Assunto" required>
                         <small>Digite um assunto válido.</small>
                     </div>
                     <div class="caixa-form-footer">

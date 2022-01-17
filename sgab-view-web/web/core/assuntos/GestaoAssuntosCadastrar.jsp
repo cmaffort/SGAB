@@ -28,10 +28,10 @@
         </section>
         <section id="form">
             <div id="caixa-form">
-                <form action="../../../src/java/sgab/view/GestaoAssuntosCadastrarController.java" method="post"> <!-- verificar caminho do action (./cadastrarController) -->
+                <form action="/sgab/cadastrarController" method="post"> <!-- verificar caminho do action (./cadastrarController) -->
                     <div>
                         <label for="tag">Informe o assunto a ser cadastrado <span class="input-obrigatorio">*</span></label>
-                        <input type="text" id="assunto" name="assunto" placeholder="Assunto" required>
+                        <input type="text" id="assunto" name="assuntoCadastro" placeholder="Assunto" required>
                         <small>Digite um assunto válido.</small>
                     </div>
                     <div class="caixa-form-footer">

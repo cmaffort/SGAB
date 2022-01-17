@@ -29,10 +29,10 @@
         </section>
         <section id="form">
             <div id="caixa-form">
-                <form action="../../../src/java/sgab/view/GestaoAssuntosEditarController.java" method="post"> <!-- verificar caminho do action (./editarController) -->
+                <form action="/sgab/editarController" method="post"> <!-- verificar caminho do action (./editarController) -->
                     <div>
                         <label for="tag">Informe o assunto a ser editado <span class="input-obrigatorio">*</span></label>
-                        <input type="text" id="assunto" name="assunto" placeholder="Assunto a ser editado" required>
+                        <input type="text" id="assunto" name="assuntoAntigo" placeholder="Assunto a ser editado" required>
                         <small>Digite um assunto válido.</small>
                     </div>
                     <div>
