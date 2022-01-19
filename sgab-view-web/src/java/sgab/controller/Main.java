@@ -22,6 +22,21 @@ public class Main extends HttpServlet {
             case "Logar":
                 jsp = LoginController.logar(request);
                 break;
+            case "AssuntoListar":
+                jsp = AssuntoController.listar(request);
+                break;
+            case "AssuntoAlterar":
+                jsp = AssuntoController.alterar(request);
+                break;
+            case "AssuntoGravarAlteracao":
+                jsp = AssuntoController.gravarAlteracao(request);
+                break;
+            case "AssuntoGravarInsercao":
+                jsp = AssuntoController.gravarInsercao(request);
+                break;           
+            case "AssuntoExcluir":
+                jsp = AssuntoController.excluir(request);
+                break;
             case "UsuarioListar":
                 jsp = UsuarioController.listar(request);
                 break;
@@ -77,6 +92,21 @@ public class Main extends HttpServlet {
                 break;
             case "BibliotecaGravarInsercao":
                 jsp = "cadstroServlet";
+                break;
+            case "UnidadeOrganizacionalListar":
+                jsp = UnidadeOrganizacionalController.listar(request);
+                break;
+            case "UnidadeOrganizacionalAlterar":
+                jsp = UnidadeOrganizacionalController.alterar(request);
+                break;
+            case "UnidadeOrganizacionalGravarAlteracao":
+                jsp = UnidadeOrganizacionalController.gravarAlteracao(request);
+                break;
+            case "UnidadeOrganizacionalGravarInsercao":
+                jsp = UnidadeOrganizacionalController.gravarInsercao(request);
+                break;           
+            case "UnidadeOrganizacionalExcluir":
+                jsp = UnidadeOrganizacionalController.excluir(request);
                 break;
         }
 

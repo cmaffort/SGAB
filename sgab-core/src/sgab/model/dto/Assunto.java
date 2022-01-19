@@ -1,11 +1,13 @@
 package sgab.model.dto;
 
 public class Assunto {
-    String nome;
-    Long id;
+    private String nome;
+    private Long id;
+    private boolean ativo;
 
-    public Assunto(String tagAssunto) {
-        this.nome = tagAssunto;
+    public Assunto(String nome) {
+        this.nome = nome;
+        this.ativo = true;
     }
     
     public Long getId(){
@@ -19,5 +21,13 @@ public class Assunto {
     }
     public String getNome() {
         return nome;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 }
