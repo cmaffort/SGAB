@@ -55,12 +55,12 @@
       <br>
       <div class="caixa-gestao">
         <h2>Operações de Biblioteca</h2>
-        <button class="button-gestao" onclick="">Gestão Biblioteca</button>
+        <button class="button-gestao" onclick="locantion.href('/sgab/core/biblioteca/opcoes.jsp')">Gestão Biblioteca</button>
       </div>
       <br>
       <div class="caixa-gestao">
         <h2>Operações de Unidade Organizacional</h2>
-        <button class="button-gestao" onclick="">Gestão Unidade Organizacional</button>
+        <button class="button-gestao" onclick="locantion.href('/sgab/core/unidadeorganizacional/')">Gestão Unidade Organizacional</button>
       </div>
     </section>
 
