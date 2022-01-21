@@ -43,14 +43,14 @@
         <h2>Operações de Bibliotecários</h2>
         <button class="button-gestao" onclick="abreModal('formCadastroBibliotecario')">Cadastrar</button>
         <button class="button-gestao" onclick="abreModal('formEdicaoBibliotecario')">Editar</button>
-        <button class="button-gestao" onclick="">Listar</button>
+        <button class="button-gestao" onclick="abreModal('formListarBibliotecario')">Listar</button>
       </div>
       <br>
       <div class="caixa-gestao">
         <h2>Operações de Atendente</h2>
         <button class="button-gestao" onclick="abreModal('formCadastroAtendente')">Cadastrar</button>
         <button class="button-gestao" onclick="abreModal('formEdicaoAtendente')">Editar</button>
-        <button class="button-gestao" onclick="">Listar</button>
+        <button class="button-gestao" onclick="abreModal('formListarAtendente')">Listar</button>
       </div>
       <br>
       <div class="caixa-gestao">
@@ -152,7 +152,32 @@
       </form>
     </div>
 
-    
+    <div class="form-popup" id="formListarBibliotecario">
+      <div class="close-btn" onclick="fechaModal('formListarBibliotecario')">&times;</div>
+      <form class="form-container" method="POST" name="login">
+
+        <input type="hidden" name="table" value="Bibliotecario">
+        <input type="hidden" name="acao" value="pesquisarPorLogin">
+        
+        <label>Nome do bibliotecário(a): <input type="text" placeholder="Nome de usuário do(a) atendente:" name="login" required></label>  
+        <button type="button" class="button-form" onclick="gravarAlteracao(document.login)">Enviar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-popup" id="formListarAtendente">
+      <div class="close-btn" onclick="fechaModal('formListarAtendente')">&times;</div>
+      <form class="form-container" method="POST" name="login">
+
+        <input type="hidden" name="table" value="Atendente">
+        <input type="hidden" name="acao" value="pesquisarPorLogin">
+        
+        <label>Nome do bibliotecário(a): <input type="text" placeholder="Nome de usuário do(a) atendente:" name="login" required></label>  
+        <button type="button" class="button-form" onclick="gravarAlteracao(document.login)">Enviar</button>
+        </div>
+      </form>
+    </div>
+
     <div id="mask" onclick="fechaModalAll()"></div>
   </main>
 
