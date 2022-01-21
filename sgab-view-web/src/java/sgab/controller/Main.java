@@ -135,6 +135,36 @@ public class Main extends HttpServlet {
             case "FornecedorExcluir":
                 jsp = FornecedorController.excluir(request);
                 break;
+            case "AtendentePesquisar":
+                jsp = GestorController.pesquisarAtendenteLogin(request);
+                break;
+            case "AtendenteListar":
+                jsp = GestorController.listarAtendente(request);
+                break;
+            case "AtendenteAlterar":
+                jsp = GestorController.alterarAtendente(request);
+                break;
+            case "AtendenteGravarAlteracao":
+                jsp = GestorController.gravarAlteracaoAtendente(request);
+                break;
+            case "AtendenteGravarInsercao":
+                jsp = GestorController.gravarInsercaoAtendente(request);
+                break;
+            case "BibliotecarioPesquisar":
+                jsp = GestorController.pesquisarAtendenteLogin(request);
+                break;
+            case "BibliotecarioListar":
+                jsp = GestorController.listarBibliotecario(request);
+                break;
+            case "BibliotecarioAlterar":
+                jsp = GestorController.alterarBibliotecario(request);
+                break;
+            case "BibliotecarioGravarAlteracao":
+                jsp = GestorController.gravarAlteracaoBibliotecario(request);
+                break;
+            case "BibliotecarioGravarInsercao":
+                jsp = GestorController.gravarInsercaoBibliotecario(request);
+                break;
         }
 
         //Redirecionando pagina

@@ -67,11 +67,14 @@
     <!-- Form de cadastro -->
     <div class="form-popup" id="formCadastroBibliotecario">
       <div class="close-btn" onclick="fechaModal('formCadastroBibliotecario')">&times;</div>
-      <form class="form-container" action="ServletBibliotecarios" method="POST">
+      <form class="form-container" method="POST" name="GravarBibliotecario">
         <h2> Cadastrar</h2>
         <div>
           
           <h3>Cadastrar</h3>
+
+          <input type="hidden" name="table" value="Bibliotecario">
+          <input type="hidden" name="acao" value="gravar">
             
           <label>Nome do bibliotecário(a): <input type="text" placeholder="Nome de usuário do(a) bibliotecário(a):" name="login" required></label>
 
@@ -85,7 +88,7 @@
 
           <label>Confirmação: <input type="password" placeholder="Senha do(a) Bibliotecario(a)" name="adminpsw" required></label>
           
-          <button type="submit" class="button-form">Enviar</button>
+          <button type="button" class="button-form" onclick="gravarAlteracao(document.GravarBibliotecario)">Enviar</button>
         </div>
       </form>
     </div>
@@ -93,17 +96,16 @@
     <!-- Form de editar bibliotecário -->
     <div class="form-popup" id="formEdicaoBibliotecario">
       <div class="close-btn" onclick="fechaModal('formEdicaoBibliotecario')">&times;</div>
-      <form class="form-container" action="ServletBibliotecarios" method="POST">
+      <form class="form-container" method="POST" name="EdicaoBibliotecario">
         <h2> Editar bibliotecário:</h2>
         
         <h3>Editar</h3>
         
         <div>
-          <label>Nome ou Email: <input type="email" placeholder="Nome ou Email do(a) bibliotecário(a)" name="nome/email" required></label>
-
-          <label>Confirmação: <input type="password" placeholder="Senha do(a) bibliotecario(a)" name="adminpsw" required></label>
-
-          <button type="submit" class="button-form">Enviar</button>
+          <input type="hidden" name="table" value="Bibliotecario">
+          <input type="hidden" name="acao" value="alterar">
+          <label>Nome de usuario: <input type="email" placeholder="Nome ou Email do(a) bibliotecário(a)" name="login" required></label>
+          <button type="button" class="button-form" onclick="gravarAlteracao(document.EdicaoBibliotecario)">Enviar</button>
         </div>
       </form>
     </div>
@@ -113,11 +115,13 @@
     <!-- Form de cadastro -->
     <div class="form-popup" id="formCadastroAtendente">
       <div class="close-btn" onclick="fechaModal('formCadastroAtendente')">&times;</div>
-      <form class="form-container" action="ServletAtendentes" method="POST">
+      <form class="form-container" method="POST" name="GravarAtendente">
         <h2> Cadastrar</h2>
         <div>
           
           <h3>Cadastrar</h3>
+          <input type="hidden" name="table" value="Atendente">
+          <input type="hidden" name="acao" value="gravar">
             
           <label>Nome do bibliotecário(a): <input type="text" placeholder="Nome de usuário do(a) atendente:" name="login" required></label>
           
@@ -129,7 +133,7 @@
 
           <label>Confirmação: <input type="password" placeholder="Senha do(a) Atendente" name="adminpsw" required></label>
 
-          <button type="submit" class="button-form">Enviar</button>
+          <button type="button" class="button-form" onclick="gravarAlteracao(document.GravarAtendente)">Enviar</button>
         </div>
       </form>
     </div>
@@ -137,14 +141,13 @@
     <!-- Form de editar atendente -->
     <div class="form-popup" id="formEdicaoAtendente">
       <div class="close-btn" onclick="fechaModal('formEdicaoAtendente')">&times;</div>
-      <form class="form-container" action="ServletAtendentes" method="POST">
+      <form class="form-container" method="POST" name="EdicaoAtendente">
         <h2> Editar</h2>
         <div>
-          <label>Nome ou Email: <input type="email" placeholder="Nome ou Email do(a) atendente" name="nome/email" required></label>
-
-          <label>Confirmação: <input type="password" placeholder="Senha do(a) atendente" name="adminpsw" required></label>
-
-          <button type="submit" class="button-form">Enviar</button>
+          <input type="hidden" name="table" value="Atendente">
+          <input type="hidden" name="acao" value="alterar">
+          <label>Nome de usuario: <input type="email" placeholder="Nome ou Email do(a) bibliotecário(a)" name="login" required></label>
+          <button type="button" class="button-form" onclick="gravarAlteracao(document.EdicaoAtendente)">Enviar</button>
         </div>
       </form>
     </div>
@@ -155,6 +158,7 @@
 
   <!-- JS -->
   <script src="../../js/abreModal.js"></script>
+  <script src="../../js/helper.js"></script>
 </body>
 <footer>
   <p>SGAB - Sistema de Gestão de Acervo Bibliográfico</p>
