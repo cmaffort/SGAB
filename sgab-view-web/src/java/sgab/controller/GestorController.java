@@ -1,4 +1,4 @@
-package sgab.controller.gestor;
+package sgab.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
+import static sgab.controller.PessoaController.listar;
 import sgab.model.dto.Pessoa;
 import sgab.model.dto.util.PessoaTipo;
 import sgab.model.exception.PersistenciaException;
@@ -22,7 +23,7 @@ public class GestorController{
             String login = request.getParameter("login");
             GestaoGestor gestaoGestor = new GestaoGestor();
             List<Pessoa> listPessoa = null;
-            listPessoa.add(gestaoGestor.pesquisarAtedentesPorLogin(login)); 
+            listPessoa.add(gestaoGestor.pesquisarAtendentesPorLogin(login)); 
             if (listPessoa != null) {
                 request.setAttribute("listPessoas", listPessoa);
                 jsp = "/core/gestor/listar.jsp";
@@ -105,7 +106,7 @@ public class GestorController{
         try {
             String login = request.getParameter("login");
             GestaoGestor gestaoGestor = new GestaoGestor();
-            Pessoa pessoa = gestaoGestor.pesquisarBibliotecarioPorLogin(login);
+            Pessoa pessoa = gestaoGestor.pesquisarBibliotecariosPorLogin(login);
             if (pessoa != null) {
                 request.setAttribute("pessoa", pessoa);
                 jsp = "/core/gestor/alterar.jsp";

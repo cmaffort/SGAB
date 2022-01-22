@@ -139,7 +139,7 @@ public class Main extends HttpServlet {
                 jsp = GestorController.pesquisarAtendenteLogin(request);
                 break;
             case "AtendenteListar":
-                jsp = GestorController.listarAtendente(request);
+                jsp = GestorController.listarAtendentes(request);
                 break;
             case "AtendenteAlterar":
                 jsp = GestorController.alterarAtendente(request);
@@ -154,7 +154,7 @@ public class Main extends HttpServlet {
                 jsp = GestorController.pesquisarAtendenteLogin(request);
                 break;
             case "BibliotecarioListar":
-                jsp = GestorController.listarBibliotecario(request);
+                jsp = GestorController.listarBibliotecarios(request);
                 break;
             case "BibliotecarioAlterar":
                 jsp = GestorController.alterarBibliotecario(request);
@@ -163,7 +163,7 @@ public class Main extends HttpServlet {
                 jsp = GestorController.gravarAlteracaoBibliotecario(request);
                 break;
             case "BibliotecarioGravarInsercao":
-                jsp = GestorController.gravarInsercaoBibliotecario(request);
+                jsp = GestorController.gravarInsercaoBiblioteca(request);
                 break;
         }
 
@@ -172,3 +172,4 @@ public class Main extends HttpServlet {
         rd.forward(request, response);
     }    
 }
+
