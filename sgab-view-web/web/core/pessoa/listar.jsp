@@ -1,13 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@page import="sgab.model.dto.Atendente" %>
+<%@page import="sgab.model.dto.Pessoa" %>
 <%@page import="java.util.List" %>
 
 <%@include file="/core/header.jsp" %>
        
         <center>
             <h3>Lista de Pessoas</h3>
-            <a href="/sgab/core/pessoa/inserir.jsp">Novo Atendente</a>
-            <form name="listarAtendente" method="post">
+            <a href="/sgab/core/pessoa/inserir.jsp">Nova Pessoa</a>
+            <form name="listarPessoa" method="post">
                 <input type="hidden" name="table" value="Pessoa">
                 <input type="hidden" name="pessoaId" value="">
 
@@ -33,27 +33,27 @@
                         </th>
                     </tr>
                     <%
-                        List<Atendente> listAtendentes = (List<Atendente>) request.getAttribute("listAtendetes");
-                        for (Atendente atendente: listAtendentes) {
+                        List<Pessoa> listPessoas = (List<Pessoa>) request.getAttribute("listPessoas");
+                        for (Pessoa pessoa: listPessoas) {
                     %>
                         <tr>
                             <td>
-                                <a href="/sgab/main?acao=AtendenteAlterar&atendenteId=<%=atendente.getId()%>"><%=atendente.getId()%></a>
+                                <a href="/sgab/main?acao=PessoaAlterar&pessoaId=<%=pessoa.getId()%>"><%=pessoa.getId()%></a>
                             </td>
                             <td>
-                                <a href="/sgab/main?acao=AtendenteAlterar&atendenteId=<%=atendente.getId()%>"><%=atendente.getLogin()%></a>
+                                <a href="/sgab/main?acao=PessoaAlterar&pessoaId=<%=pessoa.getId()%>"><%=pessoa.getLogin()%></a>
                             </td>
                             <td>
-                                <a href="/sgab/main?acao=AtendenteAlterar&atendenteId=<%=atendente.getId()%>"><%=atendente.getCpf()%></a>
+                                <a href="/sgab/main?acao=PessoaAlterar&pessoaId=<%=pessoa.getId()%>"><%=pessoa.getCpf()%></a>
                             </td>
                             <td>
-                                <a href="/sgab/main?acao=AtendenteAlterar&atendenteId=<%=atendente.getId()%>"><%=atendente.getNome()%></a>
+                                <a href="/sgab/main?acao=PessoaAlterar&pessoaId=<%=pessoa.getId()%>"><%=pessoa.getNome()%></a>
                             </td>
                             <td>
-                                <a href="/sgab/main?acao=AtendenteAlterar&atendenteId=<%=atendente.getId()%>"><%=atendente.getEmail()%></a>
+                                <a href="/sgab/main?acao=PessoaAlterar&pessoaId=<%=pessoa.getId()%>"><%=pessoa.getEmail()%></a>
                             </td>
                             <td>
-                                <input type="button" value="Excluir" onclick="excluir(<%=atendente.getId()%>,document.listarAtendente)">
+                                <input type="button" value="Excluir" onclick="excluir(<%=pessoa.getId()%>,document.listarPessoa)">
                             </td>
                         </tr>
                     <%  } %>
@@ -61,4 +61,4 @@
             </form>
         </center>
         <script type="text/javascript" language="JavaScript" src="/sgab/js/validacao.js"></script>
-        <%@include file="/core/footer.jsp" %>    
+        <%@include file="/core/footer.jsp" %>        
