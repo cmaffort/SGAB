@@ -1,18 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package dto.util;
-import dto.UnidadeOrganizacionalDTO;
-/**
- *
- * @author gabri
- */
+
+package sgab.model.dto.util;
+
+import java.util.LinkedList;
+import java.util.List;
+import sgab.model.dto.UnidadeOrganizacional;
+
 public class UnidadeOrganizacionalHelper {
-    public static boolean validarUnidadeOrganizacional(UnidadeOrganizacionalDTO unidadeOrganizacional){
-        if(unidadeOrganizacional.getNome().length() == 0||unidadeOrganizacional.getEndereco().length()==0){
-            return false; 
+    
+    public static List<String> validar(UnidadeOrganizacional uOrg){
+
+        List<String> exMsgs = new LinkedList<>();
+
+        if (uOrg == null)
+            exMsgs.add("Unidade Organizacional não pode ser null.");
+        else {
+            if (uOrg.getNome() == null || uOrg.getNome().length() == 0)
+                exMsgs.add("Obrigatório informar o nome da Unidade Organizacional.");
+            else if (uOrg.getNome().length() < 3)
+                exMsgs.add("Nome da Unidade Organizacional deve ter pelo menos 2 caracteres.");
+
+            if (uOrg.getEndereco() == null || uOrg.getEndereco().length() == 0)
+               exMsgs.add("Obrigatório informar o endereço.");
         }
-        return true;
+        
+        return exMsgs;
     }
 }

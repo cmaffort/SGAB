@@ -1,35 +1,30 @@
-/*Author : @agatha
-  FR002 -> Gestão de Unidades Organizacionais;
-  FR002 -> Gestão de Unidades Organizacionais: Grupo D;
-  FR002 -> Gestão de Unidades Organizacionais Grupo D: @Letícia, @Agatha, @GabrielLucas & @MatheusGaston*/
+package sgab.model.dto;
 
-/*Get e Set rápido no NetBeans:
-  Selecione as variáveis, Refactor, Encapsulade Fields, Next, após isso, vai aparecer um local com o botão Do Refactoring. :idea:*/
-package dto;
+public class UnidadeOrganizacional {
 
-public class UnidadeOrganizacionalDTO {
-    private boolean habilitado = true;
-    private long id;
+    private Long id;
     private String nome; 
     private String endereco;
+    private boolean habilitado;    
     
-    //CRIAR -> constructors 
-    public UnidadeOrganizacionalDTO() {}
+    public UnidadeOrganizacional() {
+        this.habilitado = true;
+    }
     
-    public UnidadeOrganizacionalDTO(long id, String nome, String endereco) {
+    public UnidadeOrganizacional(Long id, String nome, String endereco) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
+        this.habilitado = true;
     }
         
-    public UnidadeOrganizacionalDTO(boolean habilitado, long id, String nome, String endereco) {
-        this.habilitado = habilitado;
+    public UnidadeOrganizacional(Long id, String nome, String endereco, boolean habilitado) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
+        this.habilitado = habilitado;        
     }
     
-    //EDITAR
     public boolean getHabilitado() {
         return habilitado;
     }
@@ -60,14 +55,5 @@ public class UnidadeOrganizacionalDTO {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-    
-    //IMPRIMIR
-    @Override
-    public String toString() {
-        return  "Habilitado = " + this.habilitado +
-                ", ID = " + this.id +
-                ", Nome = " + this.nome +
-                ", Endereço = " + this.endereco;
     }
 }

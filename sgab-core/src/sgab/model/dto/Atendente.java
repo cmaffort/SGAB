@@ -1,4 +1,4 @@
-/*Author : @agatha
+/*Author : @agatha, @Gabriel Lucas
   FR005 -> Gestão de Atendentes;
   FR005 -> Gestão de Atendentes: Grupo D;
   FR005 -> Gestão de Atendentes: Grupo D: @Letícia, @Agatha, @GabrielLucas & @MatheusGaston*/
@@ -10,24 +10,18 @@
   Click botão direito, insert Code, constructor, selecionar variaveis (ou deixar vazio), generate*/
 
 package sgab.model.dto;
-import sgab.model.dto.Gestor;
 import sgab.model.dto.util.AtendenteStatus;
-import sgab.model.dto.util.UsuarioStatus;
 
 public class Atendente extends Pessoa{
-    private Gestor gestor;
+    private String gestor; 
+    //public Atendente(){}
     private AtendenteStatus status;
-
-    public AtendenteDTO(){}
-
-    public Atendente(Gestor gestor) {
+    public Atendente(Long cpf, String login, String nome, String email, String senha,String status,String gestor){
+        super(cpf,login,nome,email,senha);
+        this.status = AtendenteStatus.ATIVO;
         this.gestor = gestor;
     }
-
-    public Gestor getGestor(){
-        return this.gestor;
-    }
-
+    
     public AtendenteStatus getStatus() {
         return status;
     }
@@ -35,5 +29,9 @@ public class Atendente extends Pessoa{
     public void setStatus(AtendenteStatus status) {
         this.status = status;
     }
-
+    
+    public String getGestor(){
+        return this.gestor;
+    }
+    
 }
