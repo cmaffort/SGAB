@@ -33,7 +33,7 @@
                         </th>
                     </tr>
                     <%
-                        List<Atendente> listAtendentes = (List<Atendente>) request.getAttribute("listAtendetes");
+                        List<Atendente> listAtendentes = (List<Atendente>) request.getAttribute("listAtendentes");
                         for (Atendente atendente: listAtendentes) {
                     %>
                         <tr>
