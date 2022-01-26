@@ -5,7 +5,7 @@
 <%@include file="/core/header.jsp" %>
        
         <center>
-            <h3>Lista de Pessoas</h3>
+            <h3>Lista de Atendentes</h3>
             <a href="/sgab/core/pessoa/inserir.jsp">Novo Atendente</a>
             <form name="listarAtendente" method="post">
                 <input type="hidden" name="table" value="Pessoa">
