@@ -7,13 +7,16 @@ import sgab.model.dto.Atendente;
 import sgab.model.exception.PersistenciaException;
 import sgab.model.service.GestaoAtendente;
 import sgab.model.dao.AtendenteDAO;
+import sgab.model.dto.Pessoa;
+import sgab.model.dto.util.PessoaTipo;
+import sgab.model.dto.util.PessoaHelper;
 
 public class AtendenteController {
     public static String listar(HttpServletRequest request) {
         String jsp = "";
         try {
             GestaoAtendente gestaoAtendente = new GestaoAtendente();
-            List<Atendente> listAtendentes = gestaoAtendente.listarAtivos();
+            List<Atendente> listAtendentes = gestaoAtendente.pesquisarAtendentesAtivos();
             if (listAtendentes != null) {
                 request.setAttribute("listAtendentes", listAtendentes);
                 jsp = "/core/atendente/listar.jsp";
@@ -24,7 +27,7 @@ public class AtendenteController {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            jsp = "";
+            jsp = "/core/erro.jsp";
         }
         return jsp;
     }
@@ -62,6 +65,31 @@ public class AtendenteController {
                 jsp = "/core/atendente/alterar.jsp";
             } else {
                 String erro = "Ocorreu erro ao Alterar o Atendente!";
+                request.setAttribute("erro", erro);
+                jsp = "/core/erro.jsp";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsp = "";
+        }
+        return jsp;
+    }
+    public static String gravarInsercao(HttpServletRequest request) {
+        String jsp = "";
+        try {
+            String nome = request.getParameter("nome");
+
+            GestaoAtendente gestaoAtendente = new GestaoAtendente();
+ 
+            
+            Pessoa pessoa = gestaoAtendente.pesquisarPorLogin(nome);
+            pessoa.setTipo(PessoaTipo.ATENDENTE);
+            Long atendenteId = pessoa.getId();
+
+            if (atendenteId != null) {
+                jsp = "/core/atendente/listar.jsp";
+            } else {
+                String erro = "Nao foi possível gravar esse registro!";
                 request.setAttribute("erro", erro);
                 jsp = "/core/erro.jsp";
             }

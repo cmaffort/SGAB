@@ -147,6 +147,15 @@ public class Main extends HttpServlet {
             case "AtendenteListar":
                 jsp = AtendenteController.listar(request);
                 break;
+            case "AtendenteExcluir":
+                jsp = AtendenteController.excluir(request);
+                break;
+            case "AtendenteAlterar":
+                jsp = AtendenteController.alterar(request);
+                break;
+            case "AtendenteGravarInsercao":
+                jsp = AtendenteController.gravarInsercao(request);
+                break;
         }
 
         //Redirecionando pagina
