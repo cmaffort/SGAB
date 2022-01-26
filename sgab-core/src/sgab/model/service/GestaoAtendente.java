@@ -9,15 +9,19 @@ import sgab.model.dto.Atendente;
 import sgab.model.dto.util.AtendenteHelper;
 import sgab.model.dto.util.AtendenteStatus;
 import sgab.model.exception.NegocioException;
+import sgab.model.dao.PessoasDAO;
+import sgab.model.dto.Pessoa;
+import sgab.model.dto.util.PessoaHelper;
 /**
  *
  * @author gabri
  */
 public class GestaoAtendente {
+    private PessoasDAO pessoasDAO;
     AtendenteDAO atendentes = new AtendenteDAO();
     Atendente atendente;
 
-    public void cadastrarAutor(Atendente atendente){
+    public void cadastrarAtendente(Atendente atendente){
         if (!AtendenteHelper.validarAtendente(atendente)) {
 
             throw new RuntimeException("Dados Inválidos!");
@@ -26,7 +30,7 @@ public class GestaoAtendente {
         }
     }
 
-    public void alterarAutor(Atendente atendente){
+    public void alterarAtendente(Atendente atendente){
         if (!AtendenteHelper.validarAtendente(atendente)) {
 
             throw new RuntimeException("Dados Inválidos!");
@@ -52,7 +56,13 @@ public class GestaoAtendente {
             atendentes.remover(id);
         }   
     }
-    public List<Atendente> listarAtivos(){
+    public List<Atendente> pesquisarAtendentesAtivos(){
         return atendentes.listarAtivos();
     }
+    public Pessoa pesquisarPorLogin(String login){
+        Pessoa result = pessoasDAO.pesquisarLogin(login);
+        return result;
+    }
+    
 }   
+    
