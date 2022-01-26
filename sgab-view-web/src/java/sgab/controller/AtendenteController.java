@@ -29,8 +29,6 @@ public class AtendenteController {
         return jsp;
     }
     
-    
-   /* 
     public static String excluir(HttpServletRequest request) {
         String jsp = "";
         try {
@@ -38,7 +36,7 @@ public class AtendenteController {
             GestaoAtendente gestaoAtendente = new GestaoAtendente();
             Atendente atendente = gestaoAtendente.pesquisarId(atendenteId);
             try {
-                gestaoAtendente.removerAtendente(atendente);
+                gestaoAtendente.removerAtendente(atendenteId);
                 jsp = AtendenteController.listar(request);
             }
             catch(PersistenciaException ex) {
@@ -51,5 +49,26 @@ public class AtendenteController {
             jsp = "";
         }
         return jsp;
-    }*/
+    }
+
+    public static String alterar(HttpServletRequest request) {
+        String jsp = "";
+        try {
+            Long atendenteId = Long.parseLong(request.getParameter("atendenteId"));
+            GestaoAtendente manterAtendente = new GestaoAtendente();
+            Atendente atendente = manterAtendente.pesquisarId(atendenteId);
+            if (atendente != null) {
+                request.setAttribute("atendente", atendente);
+                jsp = "/core/atendente/alterar.jsp";
+            } else {
+                String erro = "Ocorreu erro ao Alterar o Atendente!";
+                request.setAttribute("erro", erro);
+                jsp = "/core/erro.jsp";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsp = "";
+        }
+        return jsp;
+    }
 }
