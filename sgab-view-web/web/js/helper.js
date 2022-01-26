@@ -196,6 +196,19 @@ function validarFornecedor(frm) {
         result = true;
 
     return result;
+    
+}
+function validarLogin(frm){
+    var result = false;
+
+    if(frm.login == ""){
+        alert("Informar o login!");
+        frm.login.focus();
+    }
+    else
+        result = true;
+
+    return result;
 }
 
 /*---------------------------------------------------------------------
@@ -293,7 +306,15 @@ function gravarAlteracao(frm) {
             else if (frm.acao.value === "gravar")
                 caminhourl = "/sgab/main?acao=UsuarioGravarInsercao";
         }
-    }    
+    }
+    else if (table === "Atendente") {
+        if (validarLogin(frm)) {
+            if (frm.acao.value === "alterar")
+                caminhourl = "/sgab/main?acao=AtendenteAlterar";
+            else if (frm.acao.value === "gravar")
+                caminhourl = "/sgab/main?acao=AtendenteGravarInsercao";
+        }
+    } 
     
 
     frm.action = caminhourl;
@@ -359,6 +380,13 @@ function excluir(id, frm) {
         if (confirm('Deseja excluir o Usuário com Id = ' + id + '?')) {
             frm.usuarioId.value = id;
             frm.action = "/sgab/main?acao=UsuarioExcluir";            
+            frm.submit();
+        }
+    } 
+    else if (table === "Atendente") {
+        if (confirm('Deseja excluir o Atendente com Id = ' + id + '?')) {
+            frm.atendenteId.value = id;
+            frm.action = "/sgab/main?acao=AtendenteExcluir";            
             frm.submit();
         }
     } 
