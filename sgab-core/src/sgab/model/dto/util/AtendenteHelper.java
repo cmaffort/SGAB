@@ -26,15 +26,15 @@ public class AtendenteHelper {
             }
             return true;
     }
-    
+
     public static boolean validarId(Long id){
         return id >= 0;
     }
-    
+
     public static boolean validarNome(String nome){
         return nome.length()>0;
     }
-    
-    
-    
+
+
+
 }

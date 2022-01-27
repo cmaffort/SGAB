@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sgab.model.service;
 import java.util.List;
 import sgab.model.dao.AtendenteDAO;
@@ -54,7 +50,7 @@ public class GestaoAtendente {
             throw new RuntimeException("Dados Inválidos!");
         } else {
             atendentes.remover(id);
-        }   
+        }
     }
     public List<Atendente> pesquisarAtendentesAtivos(){
         return atendentes.listarAtivos();
@@ -63,6 +59,5 @@ public class GestaoAtendente {
         Pessoa result = pessoasDAO.pesquisarLogin(login);
         return result;
     }
-    
-}   
-    
+
+}
