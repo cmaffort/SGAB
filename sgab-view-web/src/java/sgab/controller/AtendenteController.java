@@ -1,6 +1,6 @@
 package sgab.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.LinkedList;
 import java.util.List;
 import sgab.model.dto.Atendente;
@@ -10,18 +10,26 @@ import sgab.model.dao.AtendenteDAO;
 import sgab.model.dto.Pessoa;
 import sgab.model.dto.util.PessoaTipo;
 import sgab.model.dto.util.PessoaHelper;
+import sgab.model.service.GestaoPessoasService;
 
 public class AtendenteController {
     public static String listar(HttpServletRequest request) {
         String jsp = "";
         try {
+            String login = request.getParameter("login");
             GestaoAtendente gestaoAtendente = new GestaoAtendente();
-            List<Atendente> listAtendentes = gestaoAtendente.pesquisarAtendentesAtivos();
-            if (listAtendentes != null) {
-                request.setAttribute("listAtendentes", listAtendentes);
-                jsp = "/core/atendente/listar.jsp";
-            } else {
-                String erro = "Nao existe registro!";
+            if(login != null || "".equals(login)){
+                Pessoa pessoa = gestaoAtendente.pesquisarPorLogin(login);
+                if(pessoa != null){
+                    pessoa.setTipo(PessoaTipo.ATENDENTE);
+                    jsp = "/core/atendente/listar.jsp";
+                }else{
+                    String erro = "Nenhuma pessoa encontrada com o login informado";
+                    request.setAttribute("erro", erro);
+                    jsp = "/core/erro.jsp";
+                }
+            }else{
+                String erro = "Login invalido!";
                 request.setAttribute("erro", erro);
                 jsp = "/core/erro.jsp";
             }
@@ -77,19 +85,21 @@ public class AtendenteController {
     public static String gravarInsercao(HttpServletRequest request) {
         String jsp = "";
         try {
-            String nome = request.getParameter("nome");
-
-            GestaoAtendente gestaoAtendente = new GestaoAtendente();
- 
+            String login = request.getParameter("login");
+            GestaoPessoasService gestaoPessoasService = new GestaoPessoasService();
             
-            Pessoa pessoa = gestaoAtendente.pesquisarPorLogin(nome);
-            pessoa.setTipo(PessoaTipo.ATENDENTE);
-            Long atendenteId = pessoa.getId();
-
-            if (atendenteId != null) {
-                jsp = "/core/atendente/listar.jsp";
-            } else {
-                String erro = "Nao foi possível gravar esse registro!";
+            if(login != null || "".equals(login)){
+                Pessoa pessoa = gestaoPessoasService.pesquisarPorLogin(login);
+                if(pessoa != null){
+                    pessoa.setTipo(PessoaTipo.ATENDENTE);
+                    jsp = "/core/autores/certo.jsp";
+                }else{
+                    String erro = "Nenhuma pessoa encontrada com o login informado";
+                    request.setAttribute("erro", erro);
+                    jsp = "/core/erro.jsp";
+                }
+            }else{
+                String erro = "Login invalido!";
                 request.setAttribute("erro", erro);
                 jsp = "/core/erro.jsp";
             }

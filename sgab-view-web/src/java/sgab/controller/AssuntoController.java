@@ -1,7 +1,7 @@
 package sgab.controller;
 
 import sgab.model.exception.PersistenciaException; 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 import sgab.model.dto.Assunto;
 import sgab.model.service.GestaoAssuntoService;

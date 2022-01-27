@@ -1,6 +1,6 @@
 package sgab.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import sgab.model.dto.Pessoa;
 import sgab.model.service.GestaoPessoasService;
 import java.util.List;

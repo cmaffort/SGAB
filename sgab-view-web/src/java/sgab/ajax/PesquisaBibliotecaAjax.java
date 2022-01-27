@@ -11,15 +11,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import sgab.model.dto.Autor;
-import sgab.model.service.GestaoAutor;
+import sgab.model.dto.Biblioteca;
+import sgab.model.service.GestaoBibliotecaService;
 
 /**
  *
  * @author HP
  */
-@WebServlet(name = "PesquisaAutorAjax", urlPatterns = {"/PesquisaAutorAjax"})
-public class PesquisaAutorAjax extends HttpServlet {
+@WebServlet(name = "PesquisaBibliotecaAjax", urlPatterns = {"/PesquisaBibliotecaAjax"})
+public class PesquisaBibliotecaAjax extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,20 +34,16 @@ public class PesquisaAutorAjax extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            GestaoAutor gestaoAutor = new GestaoAutor();
+            GestaoBibliotecaService gestaoBiblioteca = new GestaoBibliotecaService();
             
-            String nomeAutor = request.getParameter("nomeAutor");
-            Autor alvo = gestaoAutor.pesquisarNome(nomeAutor);
+            String nomeBiblioteca = request.getParameter("nomeBiblioteca");
+            Biblioteca alvo = gestaoBiblioteca.pesquisarProNome(nomeBiblioteca);
             
             if(alvo != null)
                 out.print("<div class=\"acoes\"><span>"+alvo.getNome()+"</span><input type=\"button\""
-                        + " value=\"Adicionar\" onclick=\"adicionaAutor('"+ alvo.getNome()+"')\"></div>");
+                        + " value=\"Adicionar\" onclick=\"adicionaBiblioteca('"+ alvo.getNome()+"')\"></div>");
             else
-                out.print("<center>Nenhum Autor com este nome encontrado.</center>"
-                        + "<center><button type=\"button\" style=\"margin-top: 1em;\">"
-                        + "<a href=\"/sgab/core/autores/menu.jsp\" >" +
-                            "Autores" +
-                        "</a></button></center>");
+                out.print("<center>Nenhuma Biblioteca com este nome encontrado.</center>");
         }
     }
 

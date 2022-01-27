@@ -1,12 +1,12 @@
 package sgab.controller;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "Main", urlPatterns = {"/main"})
 public class Main extends HttpServlet {
@@ -102,6 +102,36 @@ public class Main extends HttpServlet {
             case "UnidadeOrganizacionalExcluir":
                 jsp = UnidadeOrganizacionalController.excluir(request);
                 break;
+            case "AdministradorGravarInsercao":
+                jsp = AdministradorController.gravarInsercaoAdministrador(request);
+                break;
+            case "AdministradorGravarAlteracao":
+                jsp = AdministradorController.alterarAdministrador(request);
+                break;
+            case "AdministradorPesquisar":
+                jsp = AdministradorController.pesquisarAdministradorLogin(request);
+                break;
+            case "AdministradorListar":
+                jsp = AdministradorController.listarAdministradores(request);
+                break;
+            case "AdministradorAlterar":
+                jsp = AdministradorController.alterarAdministrador(request);
+                break;
+            case "GestorGravarInsercao":
+                jsp = AdministradorController.gravarInsercaoGestor(request);
+                break;
+            case "GestorGravarAlteracao":
+                jsp = AdministradorController.alterarGestor(request);
+                break;
+            case "GestorPesquisar":
+                jsp = AdministradorController.pesquisarGestorLogin(request);
+                break;
+            case "GestorListar":
+                jsp = AdministradorController.listarGestores(request);
+                break;
+            case "GestorAlterar":
+                jsp = AdministradorController.alterarGestor(request);
+                break;
             case "AutorCadastrar":
                 jsp = AutorController.insercao(request);
                 break;
@@ -143,23 +173,84 @@ public class Main extends HttpServlet {
                 break;
             case "BibliotecaExcluir":
                 jsp = BibliotecaController.excluir(request);
-                break;             
-            case "AtendenteListar":
-                jsp = AtendenteController.listar(request);
                 break;
-            case "AtendenteExcluir":
-                jsp = AtendenteController.excluir(request);
+            case "IniciaCadastroAquisicao":
+                jsp = "/core/aquisicoes/pedir-passo1-leitor.jsp";
+                break;
+            case "AquisicaoCriar":
+                jsp = AquisicaoController.gravarAquisicaoBibliotecario(request);
+                break;
+            case "AquisicaoPendente":
+                jsp= AquisicaoController.gravarPendente(request);
+                break;
+            case "ListarAquisicoes":
+                jsp = AquisicaoController.listarPendentes(request);
+                break;
+            case "AceitarAquisicao":
+                jsp = AquisicaoController.pedir(request);
+                break;
+            case "RecusarAquisicao":
+                jsp = AquisicaoController.recusar(request);
+                break;
+            case "ListarAquisicoesAtivos":
+                jsp = AquisicaoController.listarAtivos(request);
+                break;
+            case "FinalizarAquisicao":
+                jsp = AquisicaoController.gravarFinalizado(request);
+                break;
+            case "ListarAquisicoesFinalizadas":
+                jsp = AquisicaoController.listarFinalizados(request);
+                break;
+            case "AquisicaoPedidoCriarObra":
+                jsp = AquisicaoController.gravarPendente(request);
+                break;
+            case "ConfereAquisicao":
+                jsp = AquisicaoController.mostraAquisicao(request);
+                break;
+            case "CadastrarObraAquisicao":
+                jsp = AquisicaoController.cadastrarObra(request);
+                break;
+            case "GravarObraAquisicao":
+                jsp = AquisicaoController.removerPendente(request);
+                break;
+            case "LeitorCadastrar":
+                jsp = LeitorController.cadastrar(request);
+                break;                
+            case "AtendentePesquisar":
+                jsp = GestorController.pesquisarAtendenteLogin(request);
+                break;
+            case "AtendenteListar":
+                jsp = GestorController.listarAtendentes(request);
                 break;
             case "AtendenteAlterar":
-                jsp = AtendenteController.alterar(request);
+                jsp = GestorController.alterarAtendente(request);
+                break;
+            case "AtendenteGravarAlteracao":
+                jsp = GestorController.gravarAlteracaoAtendente(request);
                 break;
             case "AtendenteGravarInsercao":
-                jsp = AtendenteController.gravarInsercao(request);
+                jsp = GestorController.gravarInsercaoAtendente(request);
+                break;
+            case "BibliotecarioPesquisar":
+                jsp = GestorController.pesquisarAtendenteLogin(request);
+                break;
+            case "BibliotecarioListar":
+                jsp = GestorController.listarBibliotecarios(request);
+                break;
+            case "BibliotecarioAlterar":
+                jsp = GestorController.alterarBibliotecario(request);
+                break;
+            case "BibliotecarioGravarAlteracao":
+                jsp = GestorController.gravarAlteracaoBibliotecario(request);
+                break;
+            case "BibliotecarioGravarInsercao":
+                jsp = GestorController.gravarInsercaoBiblioteca(request);
                 break;
         }
-
+                 
         //Redirecionando pagina
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }    
 }
+

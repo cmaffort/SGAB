@@ -1,9 +1,9 @@
 package sgab.controller;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import sgab.model.dto.Pessoa;
 import sgab.model.service.GestaoPessoasService;
@@ -25,7 +25,8 @@ public class LoginController {
                 String erro = "Pessoa nao encontrado!";
                 request.setAttribute("erro", erro);
                 jsp = "/core/erro.jsp";
-            } else {
+            } else {               
+                // usuário logado no sistema
                 request.getSession().setAttribute("pessoaId", pessoa.getId());
                 jsp = "/core/menu.jsp";
             }
